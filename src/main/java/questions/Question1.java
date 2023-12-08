@@ -1,7 +1,6 @@
 package questions;
 
 import java.util.List;
-import java.util.Optional;
 
 public class Question1 {
 
@@ -13,29 +12,6 @@ public class Question1 {
                 .orElse(Integer.MIN_VALUE);
     }
 
-    public static int getCalibrationValuesSumWithConvertedNumbers() {
-        return inputs.stream()
-                .map(Question1::turnStringsIntoNumbers)
-                .map(Question1::extractNumbers)
-                .map(Question1::getBoundaryNumbers)
-                .reduce(Integer::sum)
-                .orElse(Integer.MIN_VALUE);
-    }
-
-    private static String turnStringsIntoNumbers(String line) {
-        return Optional.of(line)
-                .map(l -> l.replace("one", "1"))
-                .map(l -> l.replace("two", "2"))
-                .map(l -> l.replace("three", "3"))
-                .map(l -> l.replace("four", "4"))
-                .map(l -> l.replace("five", "5"))
-                .map(l -> l.replace("six", "6"))
-                .map(l -> l.replace("seven", "7"))
-                .map(l -> l.replace("eight", "8"))
-                .map(l -> l.replace("nine", "9"))
-                .orElseThrow(IllegalStateException::new);
-    }
-
     private static List<Integer> extractNumbers(String line) {
         return line.chars()
                 .filter(Character::isDigit)
@@ -45,7 +21,6 @@ public class Question1 {
     }
 
     private static Integer getBoundaryNumbers(List<Integer> numbers) {
-        if (numbers.isEmpty()) System.err.println("edge case 🎄");
         String boundaryNumbersString = String.format("%d%d", numbers.get(0), numbers.get(numbers.size() - 1));
         return Integer.parseInt(boundaryNumbersString);
     }

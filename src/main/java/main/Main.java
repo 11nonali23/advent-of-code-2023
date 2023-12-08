@@ -8,16 +8,12 @@ public class Main {
         // ### QUESTION 1
         // * part 1
         int part1Result = Question1.getCalibrationValuesSum();
-        System.out.println("Q1 - p1" + part1Result);
-
-        // * part 2
-        int part2Result = Question1.getCalibrationValuesSumWithConvertedNumbers();
-        System.out.println("Q1 - p2" + part2Result);
+        System.out.println("Q1 - p1 " + part1Result);
 
         // ### QUESTION 2
         // * part 1
         long question2Result = Question2.getValidGamesCount();
-        System.out.println("Q2 - p1" + question2Result);
+        System.out.println("Q2 - p1 " + question2Result);
     }
 
 }
